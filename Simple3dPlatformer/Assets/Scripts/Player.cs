@@ -12,10 +12,12 @@ public class Player : MonoBehaviour
     private bool isGrounded;
     float moveside;
     float movefront;
+    Vector3 spawnPos;
 
     void Start()
     {
         rb = GetComponent<Rigidbody>();
+        spawnPos = transform.position;
     }
 
     void Update()
@@ -48,6 +50,11 @@ public class Player : MonoBehaviour
         else
         {
             isGrounded = false;
+        }
+
+        if(collision.gameObject.tag == "Respawn")
+        {
+            transform.position = spawnPos;
         }
     }
 }
