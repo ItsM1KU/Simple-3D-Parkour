@@ -7,9 +7,8 @@ public class Player : MonoBehaviour
     [SerializeField] float speed = 2.0f;
     [SerializeField] Rigidbody rb;
     [SerializeField] float jumpSpeed = 5.0f;
-    [SerializeField] float gravitychange = -2.0f;
 
-    private bool isGrounded;
+    public bool isGrounded;
     float moveside;
     float movefront;
     Vector3 spawnPos;
@@ -29,17 +28,17 @@ public class Player : MonoBehaviour
         transform.Translate(moveDirection * speed * Time.deltaTime);
 
          
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
-            isGrounded = false;
-        }
-
-        if(!isGrounded)
-        {
-            rb.velocity += Vector3.down * gravitychange * Time.deltaTime;
+            if (isGrounded)
+            { 
+                rb.AddForce(Vector3.up * jumpSpeed, ForceMode.Impulse);
+                isGrounded = false;
+            }
         }
     }
+
+
 
     private void OnCollisionEnter(Collision collision)
     {

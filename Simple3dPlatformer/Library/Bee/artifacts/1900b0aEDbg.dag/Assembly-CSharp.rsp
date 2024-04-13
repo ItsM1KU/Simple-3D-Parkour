@@ -355,7 +355,9 @@
 "Assets/AurynSky/Gems Ultimate Pack/Scripts/AnimationScript.cs"
 "Assets/Scripts/platform.cs"
 "Assets/Scripts/Player.cs"
+"Assets/Scripts/PlayerRotation.cs"
 "Assets/Scripts/smoothCamera.cs"
+"Assets/Scripts/WallHacks.cs"
 -langversion:9.0
 
 /deterministic
